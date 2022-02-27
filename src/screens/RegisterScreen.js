@@ -11,7 +11,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { APP } from "../helpers/data";
 import Field from "../components/form/Field";
 import Button from "./../components/form/Button";
-export default function LoginScreen() {
+export default function RegisterScreen() {
   return (
     <SafeAreaView style={{ height: "100%" }}>
       <View style={styles.container}>
@@ -31,7 +31,7 @@ export default function LoginScreen() {
               <Text
                 style={{ fontSize: 50, fontWeight: "bold", color: APP.primary }}
               >
-                Login
+                Sing up
               </Text>
             </View>
             <View
@@ -41,6 +41,7 @@ export default function LoginScreen() {
                 marginTop: 20,
               }}
             >
+              <Field label="Name and surname" />
               <Field label="E-mail Address" />
               <Field label="Password" type="password" icoName="lock" />
             </View>
@@ -52,17 +53,9 @@ export default function LoginScreen() {
             >
               <Text style={{ color: "#777" }}>Forgot password ?</Text>
               <Text style={{ color: "#777" }}>
-                You don't have any accounts ?{" "}
-                <Text style={{ color: APP.primary }}>Sing up</Text>
+                You have accounts ?{" "}
+                <Text style={{ color: APP.primary }}>Log in</Text>
               </Text>
-            </View>
-          </ScrollView>
-          <View>
-            <View>
-              <Image
-                source={require("./../assets/images/illustration130x200.png")}
-                style={{ width: 130, height: 200 }}
-              />
             </View>
             <View
               style={{
@@ -70,9 +63,9 @@ export default function LoginScreen() {
                 marginBottom: 20,
               }}
             >
-              <Button>Login</Button>
+              <Button>Sing up</Button>
             </View>
-          </View>
+          </ScrollView>
         </LinearGradient>
       </View>
     </SafeAreaView>
