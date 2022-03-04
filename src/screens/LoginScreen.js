@@ -58,12 +58,6 @@ export default function LoginScreen() {
             </View>
           </ScrollView>
           <View>
-            <View>
-              <Image
-                source={require("./../assets/images/illustration130x200.png")}
-                style={{ width: 130, height: 200 }}
-              />
-            </View>
             <View
               style={{
                 margin: 20,

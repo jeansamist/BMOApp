@@ -1,11 +1,12 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import Button from "./form/Button2";
+import { APP } from "../helpers/data";
 const ArticleCard = ({
   img,
   name,
   category,
-  colors = ["red", "yellow", "blue"],
+  colors = [APP.secondary, APP.colorGreen, APP.colorRed],
   price = 0,
   nav,
 }) => (
@@ -49,12 +50,13 @@ const styles = StyleSheet.create({
     width: 175,
     height: 300,
     padding: 20,
+    backgroundColor: "#fff",
     shadowColor: "#333",
     shadowOffset: {
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.25,
+    // shadowOpacity: 5,
     shadowRadius: 20,
     borderRadius: 10,
     marginVertical: 20,

@@ -11,7 +11,7 @@ export default function CategoryCard({
     <View style={styles.headCard}>
       <View style={{ width: "40%" }}>
         <Image
-          source={require("../assets/images/" + cover)}
+          source={require("../assets/images/" + "item392x252.png")}
           resizeMode="contain"
           style={{ width: 100, height: 100 }}
         />
@@ -39,17 +39,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    width: "90%",
-    height: 200,
+    width: "95%",
+    height: 250,
     padding: 20,
+    backgroundColor: "#fff",
     shadowColor: "#333",
     shadowOffset: {
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.25,
+    // shadowOpacity: 0.25,
     shadowRadius: 20,
-    marginHorizontal: "5%",
+    marginHorizontal: "2.5%",
     borderRadius: 30,
     marginVertical: 20,
   },

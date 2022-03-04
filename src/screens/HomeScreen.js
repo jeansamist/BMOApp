@@ -42,6 +42,58 @@ export default function HomeScreen(props) {
               price={20.74}
               nav={props.navigation.navigate}
             />
+            <ArticleCard
+              img={
+                <Image
+                  source={require("./../assets/images/item392x252.png")}
+                  resizeMode="contain"
+                  style={{ width: 125, height: 125 }}
+                />
+              }
+              name="PS4 Controler"
+              category="Electro"
+              price={20.74}
+              nav={props.navigation.navigate}
+            />
+            <ArticleCard
+              img={
+                <Image
+                  source={require("./../assets/images/item392x252.png")}
+                  resizeMode="contain"
+                  style={{ width: 125, height: 125 }}
+                />
+              }
+              name="PS4 Controler"
+              category="Electro"
+              price={20.74}
+              nav={props.navigation.navigate}
+            />
+            <ArticleCard
+              img={
+                <Image
+                  source={require("./../assets/images/item392x252.png")}
+                  resizeMode="contain"
+                  style={{ width: 125, height: 125 }}
+                />
+              }
+              name="PS4 Controler"
+              category="Electro"
+              price={20.74}
+              nav={props.navigation.navigate}
+            />
+            <ArticleCard
+              img={
+                <Image
+                  source={require("./../assets/images/item392x252.png")}
+                  resizeMode="contain"
+                  style={{ width: 125, height: 125 }}
+                />
+              }
+              name="PS4 Controler"
+              category="Electro"
+              price={20.74}
+              nav={props.navigation.navigate}
+            />
           </View>
         </View>
       </ScrollView>
@@ -52,6 +104,7 @@ export default function HomeScreen(props) {
 const styles = StyleSheet.create({
   headCard: {
     position: "relative",
+    backgroundColor: "#fff",
     flex: 1,
     flexDirection: "column",
     alignItems: "center",
