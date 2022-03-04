@@ -12,7 +12,7 @@ import ArticleCard from "../components/ArticleCard";
 import Button from "../components/form/Button2";
 
 export default function HomeScreen(props) {
-  console.log(props.navigation);
+  // console.log(props.navigation);
   return (
     <SafeAreaView style={{ height: "100%" }}>
       <ScrollView style={{ height: "100%" }}>
@@ -30,65 +30,7 @@ export default function HomeScreen(props) {
           <Text style={styles.sectionTitle}>Best Articles</Text>
           <View style={styles.cardlistContainer}>
             <ArticleCard
-              img={
-                <Image
-                  source={require("./../assets/images/item392x252.png")}
-                  resizeMode="contain"
-                  style={{ width: 125, height: 125 }}
-                />
-              }
-              name="PS4 Controler"
-              category="Electro"
-              price={20.74}
-              nav={props.navigation.navigate}
-            />
-            <ArticleCard
-              img={
-                <Image
-                  source={require("./../assets/images/item392x252.png")}
-                  resizeMode="contain"
-                  style={{ width: 125, height: 125 }}
-                />
-              }
-              name="PS4 Controler"
-              category="Electro"
-              price={20.74}
-              nav={props.navigation.navigate}
-            />
-            <ArticleCard
-              img={
-                <Image
-                  source={require("./../assets/images/item392x252.png")}
-                  resizeMode="contain"
-                  style={{ width: 125, height: 125 }}
-                />
-              }
-              name="PS4 Controler"
-              category="Electro"
-              price={20.74}
-              nav={props.navigation.navigate}
-            />
-            <ArticleCard
-              img={
-                <Image
-                  source={require("./../assets/images/item392x252.png")}
-                  resizeMode="contain"
-                  style={{ width: 125, height: 125 }}
-                />
-              }
-              name="PS4 Controler"
-              category="Electro"
-              price={20.74}
-              nav={props.navigation.navigate}
-            />
-            <ArticleCard
-              img={
-                <Image
-                  source={require("./../assets/images/item392x252.png")}
-                  resizeMode="contain"
-                  style={{ width: 125, height: 125 }}
-                />
-              }
+              img={require("./../assets/images/item392x252.png")}
               name="PS4 Controler"
               category="Electro"
               price={20.74}

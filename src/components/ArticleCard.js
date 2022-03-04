@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 import Button from "./form/Button2";
 import { APP } from "../helpers/data";
@@ -12,7 +12,11 @@ const ArticleCard = ({
 }) => (
   <View style={styles.articleCard}>
     <View style={{ flex: 1, flexDirection: "row", justifyContent: "center" }}>
-      {img}
+      <Image
+        source={img}
+        resizeMode="contain"
+        style={{ width: 125, height: 125 }}
+      />
     </View>
     <View style={{ marginTop: 80 }}>
       <Text style={{ fontSize: 20, fontWeight: "bold" }}>{name}</Text>

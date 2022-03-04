@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, ActivityIndicator } from "react-native";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import Home from "./src/screens/HomeScreen";
 import ProductsScreen from "./src/screens/ProductsScreen";
@@ -8,6 +8,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/screens/LoginScreen";
+// import ProductsMoreScreen from "./src/screens/ProductsMoreScreen";
 import RegisterScreen from "./src/screens/RegisterScreen";
 import ForgotPasswordScreen from "./src/screens/ForgotPasswordScreen";
 import { APP } from "./src/helpers/data";
@@ -135,14 +136,15 @@ export default function App() {
   const [auth, setauth] = useState(null);
   useEffect(() => {
     setTimeout(() => {
-      setauth(false);
-    }, 3000);
+      setauth(true);
+    }, 1000);
   }, []);
 
   if (auth === true) {
     return (
       <NavigationContainer>
         <Tabs />
+        {/* <ProductsMoreScreen /> */}
         <StatusBar style="light" backgroundColor={APP.primary} />
       </NavigationContainer>
     );
@@ -156,7 +158,7 @@ export default function App() {
   } else if (auth === null) {
     return (
       <NavigationContainer>
-        <Text style={{ margin: 50 }}>Loading...</Text>
+        <ActivityIndicator size={"large"} color={APP.primary} />
         <StatusBar style="auto" backgroundColor={APP.secondary} />
       </NavigationContainer>
     );
