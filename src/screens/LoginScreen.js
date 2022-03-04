@@ -5,13 +5,14 @@ import {
   View,
   Text,
   Image,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { APP } from "../helpers/data";
 import Field from "../components/form/Field";
 import Button from "./../components/form/Button";
-export default function LoginScreen() {
+export default function LoginScreen(props) {
   return (
     <SafeAreaView style={{ height: "100%" }}>
       <View style={styles.container}>
@@ -50,11 +51,30 @@ export default function LoginScreen() {
                 marginTop: 20,
               }}
             >
-              <Text style={{ color: "#777" }}>Forgot password ?</Text>
-              <Text style={{ color: "#777" }}>
-                You don't have any accounts ?{" "}
-                <Text style={{ color: APP.primary }}>Sing up</Text>
-              </Text>
+              <TouchableOpacity
+                onPress={() => {
+                  props.navigation.navigate("fogotPasswordNavigation");
+                }}
+              >
+                <View>
+                  <Text style={{ color: "#777" }}>Forgot password ?</Text>
+                </View>
+              </TouchableOpacity>
+
+              <View style={{ flex: 1, flexDirection: "row" }}>
+                <Text style={{ color: "#777" }}>
+                  You don't have any accounts ?{" "}
+                </Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    props.navigation.navigate("registerNavigation");
+                  }}
+                >
+                  <View>
+                    <Text style={{ color: APP.primary }}>Sing up</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
             </View>
           </ScrollView>
           <View>
@@ -64,7 +84,13 @@ export default function LoginScreen() {
                 marginBottom: 20,
               }}
             >
-              <Button>Login</Button>
+              <Button
+                onPress={() => {
+                  props.navigation.navigate("auth");
+                }}
+              >
+                Login
+              </Button>
             </View>
           </View>
         </LinearGradient>

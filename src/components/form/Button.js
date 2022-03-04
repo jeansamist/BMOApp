@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 
-export default function Button({ children }) {
+export default function Button({ children, onPress = () => {} }) {
   return (
     <TouchableOpacity
       style={{
@@ -10,6 +10,7 @@ export default function Button({ children }) {
         backgroundColor: "#000",
         borderRadius: 50,
       }}
+      onPress={onPress}
     >
       <Text
         style={{
