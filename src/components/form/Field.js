@@ -6,6 +6,7 @@ export default function Field({
   label = "Empty",
   type = "text",
   icoName = "user",
+  onChangeText = () => {},
 }) {
   const [value, setValue] = useState("");
   let isPassword = false;
@@ -21,7 +22,10 @@ export default function Field({
           placeholder={label}
           value={value}
           style={styles.input}
-          onChangeText={setValue}
+          onChangeText={(e) => {
+            setValue(e);
+            onChangeText(e);
+          }}
           secureTextEntry={isPassword}
         />
       </View>

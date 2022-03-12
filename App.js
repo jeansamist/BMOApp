@@ -135,7 +135,7 @@ export default function App() {
   const [auth, setauth] = useState(null);
   useEffect(() => {
     setTimeout(() => {
-      setauth(true);
+      setauth(false);
     }, 1000);
   }, []);
 

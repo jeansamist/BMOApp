@@ -7,12 +7,33 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { APP } from "../helpers/data";
 import Field from "../components/form/Field";
 import Button from "./../components/form/Button";
 export default function LoginScreen(props) {
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showError, setShowError] = useState(false);
+  function handlePress() {
+    let data = new FormData();
+    data.append("mail", mail);
+    data.append("password", password);
+    fetch(APP.server + "?action=login", {
+      method: "POST",
+      body: data,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.data) {
+          props.navigation.navigate("auth");
+        } else {
+          setShowError(data.error);
+        }
+      });
+    // console.log(mail, password);
+  }
   return (
     <SafeAreaView style={{ height: "100%" }}>
       <View style={styles.container}>
@@ -42,8 +63,18 @@ export default function LoginScreen(props) {
                 marginTop: 20,
               }}
             >
-              <Field label="E-mail Address" />
-              <Field label="Password" type="password" icoName="lock" />
+              <Field onChangeText={setMail} label="E-mail Address" />
+              <Field
+                onChangeText={setPassword}
+                label="Password"
+                type="password"
+                icoName="lock"
+              />
+              {showError ? (
+                <Text style={{ padding: 20, color: APP.colorRed }}>
+                  {showError}
+                </Text>
+              ) : null}
             </View>
             <View
               style={{
@@ -86,7 +117,7 @@ export default function LoginScreen(props) {
             >
               <Button
                 onPress={() => {
-                  props.navigation.navigate("auth");
+                  handlePress();
                 }}
               >
                 Login

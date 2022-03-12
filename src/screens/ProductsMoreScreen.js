@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import Button from "../components/form/Button2";
 import { APP } from "../helpers/data";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Counter({ nbr = 1, onUpdate = () => {} }) {
   const [qte, setqte] = useState(nbr);
@@ -103,6 +103,10 @@ function Counter({ nbr = 1, onUpdate = () => {} }) {
 export default function ProductsMoreScreen(props) {
   const colors = [APP.secondary, APP.colorGreen, APP.colorRed, "#000"];
   const [qte, setqte] = useState(1);
+  useEffect(() => {
+    fetch(APP.server);
+  }, []);
+
   return (
     <SafeAreaView style={{ height: "100%" }}>
       <ScrollView style={{ height: "100%" }}>
@@ -136,7 +140,11 @@ export default function ProductsMoreScreen(props) {
           <View
             style={{
               flex: 0.5,
-              transform: "translateY(25%)",
+              transform: [
+                {
+                  translateY: 50,
+                },
+              ],
             }}
           >
             <Image
