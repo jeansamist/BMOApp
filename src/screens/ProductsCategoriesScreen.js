@@ -3,7 +3,7 @@ import React from "react";
 import CategoryCard from "../components/CategoryCard";
 export default function ProductsCategoriesScreen(props) {
   return (
-    <SafeAreaView style={{ height: "100%" }}>
+    <SafeAreaView style={{ height: "100%", backgroundColor: '#eef4f7' }}>
       <ScrollView style={{ height: "100%" }}>
         <CategoryCard
           img={

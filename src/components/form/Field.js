@@ -6,23 +6,36 @@ export default function Field({
   label = "Empty",
   type = "text",
   icoName = "user",
+  defaultValue = '',
   onChangeText = () => {},
 }) {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(defaultValue);
   let isPassword = false;
   if (type === "password") {
     isPassword = true;
   }
   return (
-    <View
-      style={{ flex: 1, flexDirection: "row", width: "100%", marginTop: 10 }}
-    >
+    <View style={{ flex: 1, flexDirection: "row", width: "100%", marginTop: 10, borderColor: APP.primary, borderWidth: 1, borderRadius: 50, }}>
       <View style={{ width: "85%" }}>
         <TextInput
           placeholder={label}
           value={value}
           style={styles.input}
           onChangeText={(e) => {
+            if (type === 'number') {
+              if (parseFloat(e)) {
+                setValue(parseFloat(e));
+                onChangeText(parseFloat(e));
+                return
+              } else {
+                if (e === '') {
+                  setValue(e);
+                  onChangeText(e);
+                  return
+                }
+                return
+              }
+            }
             setValue(e);
             onChangeText(e);
           }}

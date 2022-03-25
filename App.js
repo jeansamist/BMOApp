@@ -11,6 +11,7 @@ import ForgotPasswordScreen from "./src/screens/ForgotPasswordScreen";
 import Home from "./src/screens/HomeScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import ProductsScreen from "./src/screens/ProductsScreen";
+import ProductsMoreScreen from "./src/screens/ProductsMoreScreen";
 import RegisterScreen from "./src/screens/RegisterScreen";
 import UserScreen from "./src/screens/UserScreen";
 const Tab = createBottomTabNavigator();
@@ -122,7 +123,7 @@ function Tabs() {
                 <FontAwesomeIcon
                   size={20}
                   color={focused ? "#fff" : APP.primary}
-                  name="table"
+                  name="shopping-cart"
                 />
               </View>
             </View>
@@ -224,7 +225,7 @@ export default function App() {
     return (
       <NavigationContainer>
         <Tabs />
-        {/* <CartScreen /> */}
+        {/* <ProductsMoreScreen /> */}
         <StatusBar style="light" backgroundColor={APP.primary} />
       </NavigationContainer>
     );

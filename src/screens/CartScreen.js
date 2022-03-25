@@ -5,7 +5,7 @@ import Button from "../components/form/Button2";
 import React from "react";
 export default function CartScreen() {
   return (
-    <SafeAreaView style={{ height: "100%" }}>
+    <SafeAreaView style={{ height: "100%", backgroundColor: '#eef4f7' }}>
       <ScrollView style={{ height: "100%" }}>
         <View
           style={{

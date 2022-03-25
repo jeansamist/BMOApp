@@ -10,32 +10,33 @@ import {
 import React, { useState, useEffect } from "react";
 import ArticleCard from "../components/ArticleCard";
 import { APP } from "../helpers/data";
+import ProductFlatList from "../components/ProductFlatList";
 
 export default function ProductsListScreen(props) {
   const [loading, setloading] = useState(true);
   const [products, setProducts] = useState([
     {
-      cover: require("../assets/images/item392x252.png"),
+      cover: require("../assets/images/item4.jpg"),
       category: "Electro",
-      name: "PS4 Controler",
+      name: "SmartPhones",
       price: Math.round(Math.random() * 50),
     },
     {
-      cover: require("../assets/images/item2.png"),
-      category: "Electro",
-      name: "PS4 Controler",
+      cover: require("../assets/images/item5.jpeg"),
+      category: "Baskets",
+      name: "Baskets",
       price: Math.round(Math.random() * 50),
     },
     {
-      cover: require("../assets/images/shoes2.png"),
+      cover: require("../assets/images/shoes.jpg"),
       category: "Electro",
-      name: "PS4 Controler",
+      name: "Nike retro 3",
       price: Math.round(Math.random() * 50),
     },
     {
-      cover: require("../assets/images/tshirt.png"),
+      cover: require("../assets/images/item6.jpg"),
       category: "Electro",
-      name: "PS4 Controler",
+      name: "Sound",
       price: Math.round(Math.random() * 50),
     },
   ]);
@@ -47,7 +48,7 @@ export default function ProductsListScreen(props) {
 
   if (loading) {
     return (
-      <SafeAreaView style={{ height: "100%" }}>
+      <SafeAreaView style={{ height: "100%", backgroundColor: '#eef4f7' }}>
         <ScrollView style={{ height: "100%" }}>
           <View style={styles.container}>
             <ActivityIndicator size={"large"} color={APP.primary} />
@@ -59,17 +60,8 @@ export default function ProductsListScreen(props) {
     return (
       <SafeAreaView style={{ height: "100%" }}>
         <ScrollView style={{ height: "100%" }}>
-          <View style={styles.container}>
-            {products.map((product, k) => (
-              <ArticleCard
-                img={product.cover}
-                name={product.name}
-                category={product.category}
-                price={product.price}
-                nav={props.navigation.navigate}
-                key={k}
-              />
-            ))}
+          <View>
+            <ProductFlatList nav={props.navigation.navigate} list={products} />
           </View>
         </ScrollView>
       </SafeAreaView>
