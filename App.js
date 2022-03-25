@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Text, ActivityIndicator } from "react-native";
-import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
-import Home from "./src/screens/HomeScreen";
-import ProductsScreen from "./src/screens/ProductsScreen";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import LoginScreen from "./src/screens/LoginScreen";
-import RegisterScreen from "./src/screens/RegisterScreen";
-import ForgotPasswordScreen from "./src/screens/ForgotPasswordScreen";
+import { StatusBar } from "expo-status-bar";
+import { useEffect, useState } from "react";
+import { ActivityIndicator, View } from "react-native";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import { APP } from "./src/helpers/data";
+import CartScreen from "./src/screens/CartScreen";
+import ForgotPasswordScreen from "./src/screens/ForgotPasswordScreen";
+import Home from "./src/screens/HomeScreen";
+import LoginScreen from "./src/screens/LoginScreen";
+import ProductsScreen from "./src/screens/ProductsScreen";
+import RegisterScreen from "./src/screens/RegisterScreen";
+import UserScreen from "./src/screens/UserScreen";
 const Tab = createBottomTabNavigator();
 const Account = createNativeStackNavigator();
 
@@ -127,6 +129,85 @@ function Tabs() {
           ),
         }}
       />
+      <Tab.Screen
+        name="cartNavigation"
+        component={CartScreen}
+        options={{
+          title: "Cart",
+          headerLeft: null,
+          headerStyle: {
+            backgroundColor: APP.primary,
+          },
+          headerTitleAlign: "center",
+          headerTintColor: "#fff",
+          tabBarShowLabel: false,
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                width: 40,
+                height: 40,
+              }}
+            >
+              <View
+                style={{
+                  width: 40,
+                  height: 40,
+                  flex: 1,
+                  borderRadius: 50,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: focused ? APP.primary : "#fff",
+                }}
+              >
+                <FontAwesomeIcon
+                  size={20}
+                  color={focused ? "#fff" : APP.primary}
+                  name="dollar"
+                />
+              </View>
+            </View>
+          ),
+        }}
+      />
+      {/* <Tab.Screen
+        name="You"
+        component={UserScreen}
+        options={{
+          headerLeft: null,
+          headerStyle: {
+            backgroundColor: APP.primary,
+          },
+          headerTitleAlign: "center",
+          headerTintColor: "#fff",
+          tabBarShowLabel: false,
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                width: 40,
+                height: 40,
+              }}
+            >
+              <View
+                style={{
+                  width: 40,
+                  height: 40,
+                  flex: 1,
+                  borderRadius: 50,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: focused ? APP.primary : "#fff",
+                }}
+              >
+                <FontAwesomeIcon
+                  size={20}
+                  color={focused ? "#fff" : APP.primary}
+                  name="user"
+                />
+              </View>
+            </View>
+          ),
+        }}
+      /> */}
     </Tab.Navigator>
   );
 }
@@ -135,7 +216,7 @@ export default function App() {
   const [auth, setauth] = useState(null);
   useEffect(() => {
     setTimeout(() => {
-      setauth(false);
+      setauth(true);
     }, 1000);
   }, []);
 
@@ -143,7 +224,7 @@ export default function App() {
     return (
       <NavigationContainer>
         <Tabs />
-        {/* <ProductsMoreScreen /> */}
+        {/* <CartScreen /> */}
         <StatusBar style="light" backgroundColor={APP.primary} />
       </NavigationContainer>
     );

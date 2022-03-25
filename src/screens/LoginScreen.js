@@ -16,6 +16,7 @@ export default function LoginScreen(props) {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const [showError, setShowError] = useState(false);
+
   function handlePress() {
     let data = new FormData();
     data.append("mail", mail);
@@ -34,6 +35,7 @@ export default function LoginScreen(props) {
       });
     // console.log(mail, password);
   }
+
   return (
     <SafeAreaView style={{ height: "100%" }}>
       <View style={styles.container}>
